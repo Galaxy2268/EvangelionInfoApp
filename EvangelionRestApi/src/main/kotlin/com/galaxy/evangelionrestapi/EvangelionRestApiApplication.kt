@@ -4,7 +4,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class EvangelionRestApiApplication
+open class EvangelionRestApiApplication
 
 fun main(args: Array<String>) {
     runApplication<EvangelionRestApiApplication>(*args)

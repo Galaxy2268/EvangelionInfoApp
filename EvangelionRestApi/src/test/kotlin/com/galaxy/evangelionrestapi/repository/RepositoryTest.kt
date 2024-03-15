@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class RepositoryTest {
+internal class RepositoryTest {
 
     @Autowired
     private lateinit var repository: CharacterRepository
@@ -23,6 +23,18 @@ class RepositoryTest {
         fun `should return a list of characters`() {
             val characters = repository.findAll()
             Assertions.assertTrue(characters.isNotEmpty())
+        }
+    }
+
+
+    @Nested
+    @DisplayName("getByName")
+    @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+    inner class GetByName {
+        @Test
+        fun `should return character by name`() {
+            val character = repository.findByName("Shinji Ikari")
+            Assertions.assertTrue(character?.name == "Shinji Ikari" && character.age == 14)
         }
     }
 }
