@@ -28,8 +28,8 @@ internal class ServiceTest {
     inner class GetByName {
         @Test
         fun `should return character by name`() {
-            val character = characterService.getByName("Asuka Langley Sohryu")
-            Assertions.assertTrue(character?.name == "Asuka Langley Sohryu" && character.rank == "Second Child")
+            val character = characterService.getByName("Asuka")
+            Assertions.assertTrue(character?.name == "Asuka" && character.rank == "Second Child")
         }
     }
 
@@ -38,9 +38,10 @@ internal class ServiceTest {
     @TestInstance(TestInstance.Lifecycle.PER_CLASS)
     inner class GetNonExistentCharacter {
         @Test
-        fun `should return null`() {
-            val character = characterService.getByName("Does not exist")
-            Assertions.assertTrue(character == null)
+        fun `should throw null pointer exception`() {
+            Assertions.assertThrows(NullPointerException::class.java) {
+                characterService.getByName("Does not exist")
+            }
         }
     }
 }

@@ -12,6 +12,7 @@ class Character(
     @Id @GeneratedValue
     var id: Long = 0,
     var name: String = "",
+    var fullName: String = "",
     var rank: String = "",
     var age: Int = 0,
     var dateOfBirth: String = "",

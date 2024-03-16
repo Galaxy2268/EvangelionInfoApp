@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.TestInstance
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.boot.test.autoconfigure.orm.jpa.AutoConfigureDataJpa
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
@@ -33,8 +34,8 @@ internal class RepositoryTest {
     inner class FindByName {
         @Test
         fun `should return character by name`() {
-            val character = repository.findByName("Shinji Ikari")
-            Assertions.assertTrue(character?.name == "Shinji Ikari" && character.age == 14)
+            val character = repository.findByName("Shinji")
+            Assertions.assertTrue(character?.name == "Shinji" && character.age == 14)
         }
     }
 
