@@ -15,10 +15,6 @@ class CharacterController(
     private val characterService: CharacterService
 ) {
 
-    @ExceptionHandler(NullPointerException::class)
-    fun handleNull(e: Exception): ResponseEntity<String> {
-        return ResponseEntity(e.message, HttpStatus.NOT_FOUND)
-    }
 
     @GetMapping("/api/characters")
     fun getCharacters() = characterService.getCharacters()
