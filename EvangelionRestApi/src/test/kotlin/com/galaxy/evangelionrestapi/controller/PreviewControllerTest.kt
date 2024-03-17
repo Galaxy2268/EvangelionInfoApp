@@ -1,5 +1,6 @@
 package com.galaxy.evangelionrestapi.controller
 
+import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc
@@ -16,11 +17,14 @@ class PreviewControllerTest {
 
     @Test
     fun `should return preview text`(){
-        previewController.get("/api")
+        val result = previewController.get("/api")
             .andDo { print() }
             .andExpect {
                 status { isOk() }
-                content { MediaType.valueOf("text/plain;charset=UTF-8") }
-            }
+            }.andReturn()
+        val content = result.response.contentAsString
+        Assertions.assertTrue(content.contains("<html"))
+        Assertions.assertTrue(content.contains("<head"))
+        Assertions.assertTrue(content.contains("<body"))
     }
 }
