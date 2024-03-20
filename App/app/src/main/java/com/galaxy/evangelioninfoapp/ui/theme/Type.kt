@@ -1,4 +1,4 @@
-package com.galaxy.evangelioninfo.ui.theme
+package com.galaxy.evangelioninfoapp.ui.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle

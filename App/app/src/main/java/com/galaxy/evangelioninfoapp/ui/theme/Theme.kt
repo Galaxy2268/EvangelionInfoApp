@@ -1,4 +1,4 @@
-package com.galaxy.evangelioninfo.ui.theme
+package com.galaxy.evangelioninfoapp.ui.theme
 
 import android.app.Activity
 import android.os.Build
