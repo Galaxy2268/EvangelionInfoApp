@@ -1,4 +1,4 @@
-package com.galaxy.evawiki.evainfo.presentation.characters.components
+package com.galaxy.evawiki.evainfo.presentation.items.components
 
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -16,12 +16,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.galaxy.evawiki.evainfo.presentation.characters.CharacterViewModel
+import androidx.navigation.NavController
+import com.galaxy.evawiki.evainfo.presentation.items.ItemsViewModel
+import com.galaxy.evawiki.evainfo.presentation.util.Screen
 
 @Composable
-fun CharacterScreen(
-    viewModel: CharacterViewModel = hiltViewModel(),
-    //navController: NavController
+fun ItemsScreen(
+    viewModel: ItemsViewModel = hiltViewModel(),
+    navController: NavController
 ){
     val state = viewModel.state.value
 
@@ -31,7 +33,7 @@ fun CharacterScreen(
             .padding(16.dp)
     ) {
         Text(
-            text = "Characters",
+            text = "EVA Wiki",
             style = MaterialTheme.typography.headlineLarge
         )
         Spacer(modifier = Modifier.height(16.dp))
@@ -41,13 +43,13 @@ fun CharacterScreen(
             verticalItemSpacing = 8.dp,
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
-            items(state.characters) { character ->
-                CharacterItem(
-                    character = character,
+            items(state.items) { item ->
+                ItemsCard(
+                    item = item,
                     modifier = Modifier
                         .fillMaxSize()
                         .clickable {
-                            //TODO
+                            navController.navigate(Screen.ItemScreen.route + "?name=${item.name}")
                         }
                 )
             }

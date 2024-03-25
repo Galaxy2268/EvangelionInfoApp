@@ -1,4 +1,4 @@
-package com.galaxy.evawiki.evainfo.presentation.characters.components
+package com.galaxy.evawiki.evainfo.presentation.items.components
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -14,6 +14,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
@@ -22,11 +23,12 @@ import coil.compose.AsyncImage
 import com.galaxy.evawiki.evainfo.domain.model.Character
 
 @Composable
-fun CharacterItem(
-    character: Character,
+fun ItemsCard(
+    item: Character,
     modifier: Modifier = Modifier,
-    cornerRadius: Dp = 15.dp,
-    elevation: Dp = 6.dp
+    cornerRadius: Dp = 16.dp,
+    imageCornerRadius: Dp = 8.dp,
+    elevation: Dp = 8.dp
 ){
     Box(modifier = modifier){
         ElevatedCard(
@@ -43,29 +45,30 @@ fun CharacterItem(
                     .padding(16.dp)
             ) {
                 AsyncImage(
-                    model = character.picture,
+                    model = item.picture,
                     contentDescription = "Character",
                     modifier = Modifier
-                        .aspectRatio(1f),
-                    contentScale = ContentScale.FillBounds
+                        .aspectRatio(1f)
+                        .clip(RoundedCornerShape(imageCornerRadius)),
+                    contentScale = ContentScale.FillBounds,
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = character.fullName,
+                    text = item.fullName,
                     style = MaterialTheme.typography.labelLarge,
                     color = MaterialTheme.colorScheme.onPrimaryContainer,
                     maxLines = 1
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = character.rank,
+                    text = item.rank,
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.onPrimaryContainer,
                     maxLines = 1
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = character.bio,
+                    text = item.bio,
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onPrimaryContainer,
                     maxLines = 4,

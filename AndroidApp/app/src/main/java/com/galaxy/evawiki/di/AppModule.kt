@@ -4,9 +4,9 @@ import com.galaxy.evawiki.di.util.BaseUrl.BASE_URL
 import com.galaxy.evawiki.evainfo.data.remote.EvangelionApi
 import com.galaxy.evawiki.evainfo.data.repository.CharacterRepositoryImpl
 import com.galaxy.evawiki.evainfo.domain.repository.CharacterRepository
-import com.galaxy.evawiki.evainfo.domain.usecases.character.CharacterUseCases
-import com.galaxy.evawiki.evainfo.domain.usecases.character.GetCharacter
-import com.galaxy.evawiki.evainfo.domain.usecases.character.GetCharacters
+import com.galaxy.evawiki.evainfo.domain.usecases.ItemUseCases
+import com.galaxy.evawiki.evainfo.domain.usecases.characters.GetCharacter
+import com.galaxy.evawiki.evainfo.domain.usecases.characters.GetCharacters
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -37,8 +37,8 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideCharacterUseCases(repository: CharacterRepository): CharacterUseCases {
-        return CharacterUseCases(
+    fun provideCharacterUseCases(repository: CharacterRepository): ItemUseCases {
+        return ItemUseCases(
             getCharacters = GetCharacters(repository),
             getCharacter = GetCharacter(repository)
         )
