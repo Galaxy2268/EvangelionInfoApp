@@ -34,7 +34,8 @@ fun ItemsScreen(
     ) {
         Text(
             text = "EVA Wiki",
-            style = MaterialTheme.typography.headlineLarge
+            style = MaterialTheme.typography.headlineLarge,
+            color = MaterialTheme.colorScheme.onSurface
         )
         Spacer(modifier = Modifier.height(16.dp))
         LazyVerticalStaggeredGrid(

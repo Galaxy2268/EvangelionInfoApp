@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody
 class PreviewController {
     @GetMapping("/api")
     fun preview(): ResponseEntity<Resource> {
-        val htmlResource: Resource = ClassPathResource("/static/Html/Preview.html")
+        val htmlResource: Resource = ClassPathResource("/static/html/Preview.html")
         return ResponseEntity.ok().body(htmlResource)
     }
 }
