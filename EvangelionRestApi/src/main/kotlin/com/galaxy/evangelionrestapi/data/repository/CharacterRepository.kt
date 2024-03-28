@@ -5,4 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository
 
 interface CharacterRepository: JpaRepository<Character, Long>{
     fun findByName(name: String): Character?
+    fun findChById(id: Long): Character?
 }

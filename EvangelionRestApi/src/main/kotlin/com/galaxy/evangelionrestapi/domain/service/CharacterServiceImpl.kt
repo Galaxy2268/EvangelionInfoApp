@@ -24,4 +24,9 @@ class CharacterServiceImpl(
         return characterRepository.findAll()
     }
 
+    override fun getById(id: Long): Character {
+        val character = characterRepository.findChById(id)
+        return character ?: throw NullPointerException("Character not found")
+    }
+
 }

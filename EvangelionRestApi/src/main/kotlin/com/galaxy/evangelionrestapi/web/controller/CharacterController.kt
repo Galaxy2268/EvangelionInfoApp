@@ -19,7 +19,10 @@ class CharacterController(
     @GetMapping("/api/characters")
     fun getCharacters() = characterService.getCharacters()
 
-    @GetMapping("/api/characters/{name}")
+    @GetMapping("/api/characters/name/{name}")
     fun getCharacterByName(@PathVariable name: String) = characterService.getByName(name)
+
+    @GetMapping("/api/characters/id/{id}")
+    fun getCharacterById(@PathVariable id: Long) = characterService.getById(id)
 
 }

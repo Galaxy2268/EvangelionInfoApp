@@ -9,7 +9,7 @@ interface EvangelionApi {
     @GET("characters")
     suspend fun getCharacters(): List<Character>
 
-    @GET("characters/{name}")
+    @GET("characters/name/{name}")
     suspend fun getCharacter(@Path("name") name: String): Character
 
 }

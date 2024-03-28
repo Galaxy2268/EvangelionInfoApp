@@ -8,6 +8,7 @@ import org.springframework.http.MediaType
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.get
 
+private const val BASE_URL = "/api/characters"
 @SpringBootTest
 @AutoConfigureMockMvc
 internal class CharacterControllerTest {
@@ -21,7 +22,7 @@ internal class CharacterControllerTest {
     inner class GetCharactersEndpoint {
         @Test
         fun `should return a list of characters`() {
-            characterController.get("/api/characters")
+            characterController.get(BASE_URL)
                 .andDo { print() }
                 .andExpect {
                     status { isOk() }
@@ -38,7 +39,7 @@ internal class CharacterControllerTest {
     inner class GetCharacterByNameEndpoint {
         @Test
         fun `should return a character by name`() {
-            characterController.get("/api/characters/Asuka")
+            characterController.get( "$BASE_URL/name/Asuka")
                 .andDo { print() }
                 .andExpect {
                     status { isOk() }
@@ -50,12 +51,44 @@ internal class CharacterControllerTest {
     }
 
     @Nested
-    @DisplayName("getNonExistentCharacter")
+    @DisplayName("getCharacterByIdEndpoint")
     @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-    inner class GetNonExistentCharacter {
+    inner class GetCharacterByIdEndpoint {
+        @Test
+        fun `should return a character by id`() {
+            characterController.get("$BASE_URL/id/1")
+                .andDo { print() }
+                .andExpect {
+                    status { isOk() }
+                    jsonPath("$.name") { value("Asuka") }
+                    content { contentType(MediaType.APPLICATION_JSON) }
+                }
+
+        }
+    }
+
+    @Nested
+    @DisplayName("getNonExistentCharacter(name)")
+    @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+    inner class GetNonExistentCharacterByName {
         @Test
         fun `should return is not found status`() {
-            characterController.get("/api/characters/Does not exist")
+            characterController.get("$BASE_URL/name/Does not exist")
+                .andDo { print() }
+                .andExpect {
+                    status { isNotFound() }
+                }
+
+        }
+    }
+
+    @Nested
+    @DisplayName("getNonExistentCharacter(id)")
+    @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+    inner class GetNonExistentCharacterById {
+        @Test
+        fun `should return is not found status`() {
+            characterController.get("$BASE_URL/id/-1")
                 .andDo { print() }
                 .andExpect {
                     status { isNotFound() }
