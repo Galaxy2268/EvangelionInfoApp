@@ -39,12 +39,12 @@ internal class CharacterRepositoryTest {
 
 
     @Nested
-    @DisplayName("findById")
+    @DisplayName("findByPk")
     @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-    inner class FindById {
+    inner class FindByPk {
         @Test
-        fun `should return character by id`() {
-            val character = repository.findChById(1)
+        fun `should return character by pk`() {
+            val character = repository.findByPk(1)
             Assertions.assertTrue(character?.name == "Asuka" && character.age == 14)
         }
     }
@@ -62,12 +62,12 @@ internal class CharacterRepositoryTest {
     }
 
     @Nested
-    @DisplayName("findNonExistentCharacter(id)")
+    @DisplayName("findNonExistentCharacter(pk)")
     @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-    inner class FindNonExistentCharacterById {
+    inner class FindNonExistentCharacterByPk {
         @Test
         fun `should return null`() {
-            val character = repository.findChById(-1)
+            val character = repository.findByPk(-1)
             Assertions.assertTrue(character == null)
         }
     }

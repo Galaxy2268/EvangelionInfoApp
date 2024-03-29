@@ -5,18 +5,16 @@ import jakarta.persistence.GeneratedValue
 import jakarta.persistence.Id
 import jakarta.persistence.Table
 
-
 @Entity
-@Table(name = "characters")
-class Character(
+@Table(name = "episodes")
+class Episode(
     @Id @GeneratedValue
     var pk: Long = 0,
+    var number: String = "",
     var name: String = "",
-    var fullName: String = "",
-    var rank: String = "",
-    var age: Int = 0,
-    var dateOfBirth: String = "",
-    var bloodType: String = "",
-    var bio: String = "",
+    var director: String = "",
+    var writer: String = "",
+    var airDate: String = "",
+    var info: String = "",
     var picture: String = ""
 )

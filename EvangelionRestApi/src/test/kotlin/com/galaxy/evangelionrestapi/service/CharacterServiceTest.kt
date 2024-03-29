@@ -34,12 +34,12 @@ internal class CharacterServiceTest {
     }
 
     @Nested
-    @DisplayName("getById")
+    @DisplayName("getByPk")
     @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-    inner class GetById {
+    inner class GetByPk {
         @Test
-        fun `should return character by id`() {
-            val character = characterService.getById(1)
+        fun `should return character by pk`() {
+            val character = characterService.getByPk(1)
             Assertions.assertTrue(character.name == "Asuka" && character.rank == "Second Child")
         }
     }
@@ -57,13 +57,13 @@ internal class CharacterServiceTest {
     }
 
     @Nested
-    @DisplayName("getNonExistentCharacter(id)")
+    @DisplayName("getNonExistentCharacter(pk)")
     @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-    inner class GetNonExistentCharacterById {
+    inner class GetNonExistentCharacterByPk {
         @Test
         fun `should throw null pointer exception`() {
             Assertions.assertThrows(NullPointerException::class.java) {
-                characterService.getById(-1)
+                characterService.getByPk(-1)
             }
         }
     }

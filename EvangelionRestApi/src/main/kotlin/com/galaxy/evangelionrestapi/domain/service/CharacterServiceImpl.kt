@@ -4,10 +4,7 @@ import com.galaxy.evangelionrestapi.data.repository.CharacterRepository
 import com.galaxy.evangelionrestapi.domain.model.Character
 import com.galaxy.evangelionrestapi.web.service.CharacterService
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.http.HttpStatus
-import org.springframework.http.ResponseEntity
 import org.springframework.stereotype.Service
-import org.springframework.web.bind.annotation.ExceptionHandler
 
 @Service
 class CharacterServiceImpl(
@@ -24,8 +21,8 @@ class CharacterServiceImpl(
         return characterRepository.findAll()
     }
 
-    override fun getById(id: Long): Character {
-        val character = characterRepository.findChById(id)
+    override fun getByPk(pk: Long): Character {
+        val character = characterRepository.findByPk(pk)
         return character ?: throw NullPointerException("Character not found")
     }
 

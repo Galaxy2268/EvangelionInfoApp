@@ -5,5 +5,5 @@ import com.galaxy.evangelionrestapi.domain.model.Character
 interface CharacterService {
     fun getByName(name: String): Character
     fun getCharacters(): List<Character>
-    fun getById(id: Long): Character
+    fun getByPk(pk: Long): Character
 }
