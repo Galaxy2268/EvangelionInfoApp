@@ -2,14 +2,105 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Evangelion info REST API</title>
+    <title>Evangelion Info REST API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f3f3f3;
+            color: #696363;
+        }
+        h1 {
+            color: #aa00ff;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .section {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(98, 74, 74, 0.1);
+            background-color: #f8f9fa;
+        }
+        .section-title {
+            font-size: 20px;
+            margin-bottom: 10px;
+            padding: 5px 10px;
+            border-left: 4px solid;
+            color: #000000;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 5px;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+            transition: background-color 0.3s ease;
+            border-left: 4px solid;
+        }
+        li:hover {
+            background-color: #e9e9e9;
+        }
+        li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+            display: block;
+            padding: 5px;
+        }
+        .characters { border-color: #a26edc; background-color: #e3d1f1; color: #572793; }
+        .evangelions { border-color: #37984c; background-color: #d4edda; color: #1a7e2d; }
+        .episodes { border-color: #4881be; background-color: #c8e1fa; color: #255b8c; }
+        .angels { border-color: #c5515b; background-color: #f8d7da; color: #8c2c35; }
+        .stuff { border-color: #dcbb63; background-color: #fff3cd; color: #917122; }
+
+    </style>
 </head>
 <body>
-<h1>Evangelion info REST API available endpoints:</h1>
-<ul>
-    <li>/api - (this page)</li>
-    <li>/api/evangelion/characters - (gives you a list of available characters)</li>
-    <li>/api/evangelion/characters/name/{name} - (gives you a specific character by name)</li>
-</ul>
+<h1>Evangelion Info REST API available endpoints:</h1>
+<div class="section">
+    <h2 class="section-title characters">Characters Endpoint:</h2>
+    <ul>
+        <li><a href="/api/characters">/api/characters - (gives you a list of available characters)</a></li>
+        <li><a href="/api/characters/name/Asuka">/api/characters/name/{name} - (gives you a specific character by name)</a></li>
+        <li><a href="/api/characters/id/1">/api/characters/id/{id} - (gives you a specific character by id)</a></li>
+    </ul>
+</div>
+<div class="section">
+    <h2 class="section-title evangelions">Evangelions Endpoint:</h2>
+    <ul>
+        <li><a href="/api/evangelions">/api/evangelions - (gives you a list of evangelions)</a></li>
+        <li><a href="/api/evangelions/name/Unit-01">/api/evangelions/name/{name} - (gives you a specific evangelion by name)</a></li>
+        <li><a href="/api/evangelions/id/1">/api/evangelions/id/{id} - (gives you a specific evangelion by id)</a></li>
+    </ul>
+</div>
+<div class="section">
+    <h2 class="section-title episodes">Episodes Endpoint:</h2>
+    <ul>
+        <li><a href="/api/episodes">/api/episodes - (gives you a list of episodes)</a></li>
+        <li><a href="/api/episodes/number/01">/api/episodes/number/{number} - (gives you a specific episode by number)</a></li>
+        <li><a href="/api/episodes/id/1">/api/episodes/id/{id} - (gives you a specific episode by id)</a></li>
+    </ul>
+</div>
+<div class="section">
+    <h2 class="section-title angels">Angels Endpoint:</h2>
+    <ul>
+        <li><a href="/api/angels">/api/angels - (gives you a list of angels)</a></li>
+        <li><a href="/api/angels/name/Adam">/api/angels/name/{name} - (gives you a specific angel by name)</a></li>
+        <li><a href="/api/angels/id/1">/api/angels/id/{id} - (gives you a specific angel by id)</a></li>
+    </ul>
+</div>
+<div class="section">
+    <h2 class="section-title stuff">Stuff Endpoint:</h2>
+    <ul>
+        <li><a href="/api/stuff">/api/stuff - (gives you a list of stuff)</a></li>
+        <li><a href="/api/stuff/name/Core">/api/stuff/name/{name} - (gives you a specific stuff by name)</a></li>
+        <li><a href="/api/stuff/id/1">/api/stuff/id/{id} - (gives you a specific stuff by id)</a></li>
+    </ul>
+</div>
 </body>
 </html>

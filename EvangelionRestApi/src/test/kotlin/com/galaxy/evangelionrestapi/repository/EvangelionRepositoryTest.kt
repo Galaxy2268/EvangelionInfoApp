@@ -63,8 +63,8 @@ internal class EvangelionRepositoryTest {
     inner class FindNonExistentEvangelionByPk {
         @Test
         fun `should return null`() {
-            val character = repository.findByPk(-1)
-            Assertions.assertTrue(character == null)
+            val eva = repository.findByPk(-1)
+            Assertions.assertTrue(eva == null)
         }
     }
 }

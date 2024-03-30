@@ -1,26 +1,25 @@
 package com.galaxy.evangelionrestapi.service
 
 
-
-import com.galaxy.evangelionrestapi.web.service.EvangelionService
+import com.galaxy.evangelionrestapi.web.service.AngelService
 import org.junit.jupiter.api.*
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-internal class EvangelionServiceTest {
+internal class AngelServiceTest {
 
     @Autowired
-    private lateinit var service: EvangelionService
+    private lateinit var service: AngelService
 
     @Nested
-    @DisplayName("getEvangelions")
+    @DisplayName("getAngels")
     @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-    inner class GetEvangelions {
+    inner class GetAngels {
         @Test
-        fun `should return a list of evangelions`() {
-            val evangelions = service.getEvangelions()
-            Assertions.assertTrue(evangelions.isNotEmpty())
+        fun `should return a list of angels`() {
+            val angels = service.getAngels()
+            Assertions.assertTrue(angels.isNotEmpty())
         }
     }
 
@@ -29,9 +28,9 @@ internal class EvangelionServiceTest {
     @TestInstance(TestInstance.Lifecycle.PER_CLASS)
     inner class GetByName {
         @Test
-        fun `should return evangelion by name`() {
-            val eva = service.getByName("Unit-01")
-            Assertions.assertTrue(eva.name == "Unit-01" && eva.pilot == "Shinji Ikari")
+        fun `should return angel by name`() {
+            val angel = service.getByName("Adam")
+            Assertions.assertTrue(angel.name == "Adam" && angel.number == 1)
         }
     }
 
@@ -40,16 +39,16 @@ internal class EvangelionServiceTest {
     @TestInstance(TestInstance.Lifecycle.PER_CLASS)
     inner class GetByPk {
         @Test
-        fun `should return evangelion by pk`() {
-            val eva = service.getByPk(2)
-            Assertions.assertTrue(eva.name == "Unit-00" && eva.soul == "Rei I")
+        fun `should return angel by pk`() {
+            val angel = service.getByPk(2)
+            Assertions.assertTrue(angel.name == "Lilith" && angel.number == 2)
         }
     }
 
     @Nested
-    @DisplayName("getNonExistentEvangelion(name)")
+    @DisplayName("getNonExistentAngel(name)")
     @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-    inner class GetNonExistentEvangelionByName {
+    inner class GetNonExistentAngelByName {
         @Test
         fun `should throw null pointer exception`() {
             Assertions.assertThrows(NullPointerException::class.java) {
@@ -59,9 +58,9 @@ internal class EvangelionServiceTest {
     }
 
     @Nested
-    @DisplayName("getNonExistentEvangelion(pk)")
+    @DisplayName("getNonExistentAngel(pk)")
     @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-    inner class GetNonExistentEvangelionByPk {
+    inner class GetNonExistentAngelByPk {
         @Test
         fun `should throw null pointer exception`() {
             Assertions.assertThrows(NullPointerException::class.java) {

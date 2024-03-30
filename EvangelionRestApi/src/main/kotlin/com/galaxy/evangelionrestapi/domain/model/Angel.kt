@@ -12,7 +12,7 @@ class Angel(
     var pk: Long = 0,
     var name: String = "",
     var meaning: String = "",
-    var symboly: String = "",
+    var symbolism: String = "",
     var number: Int = 0,
     var info: String = "",
     var picture: String = ""
