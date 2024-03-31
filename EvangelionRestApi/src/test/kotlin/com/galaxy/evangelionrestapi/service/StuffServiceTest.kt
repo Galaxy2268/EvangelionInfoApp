@@ -34,6 +34,19 @@ internal class StuffServiceTest {
     }
 
     @Nested
+    @DisplayName("picturePathTest")
+    @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+    inner class PicturePathTest{
+        @Test
+        fun `should contain correct picture path`(){
+            val stuff = service.getStuff()
+            Assertions.assertTrue(stuff[0].picture.contains("8080/pictures/"))
+        }
+
+    }
+
+
+    @Nested
     @DisplayName("getStuffByPk")
     @TestInstance(TestInstance.Lifecycle.PER_CLASS)
     inner class GetStuffByPk {

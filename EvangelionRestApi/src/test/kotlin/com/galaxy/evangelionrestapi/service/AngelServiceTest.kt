@@ -46,6 +46,17 @@ internal class AngelServiceTest {
     }
 
     @Nested
+    @DisplayName("picturePathTest")
+    @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+    inner class PicturePathTest{
+        @Test
+        fun `should contain correct picture path`(){
+            val angel = service.getByPk(1)
+            Assertions.assertTrue(angel.picture.contains("8080/pictures/"))
+        }
+    }
+
+    @Nested
     @DisplayName("getNonExistentAngel(name)")
     @TestInstance(TestInstance.Lifecycle.PER_CLASS)
     inner class GetNonExistentAngelByName {

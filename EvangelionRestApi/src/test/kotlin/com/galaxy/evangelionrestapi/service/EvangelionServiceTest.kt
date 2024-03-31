@@ -47,6 +47,17 @@ internal class EvangelionServiceTest {
     }
 
     @Nested
+    @DisplayName("picturePathTest")
+    @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+    inner class PicturePathTest{
+        @Test
+        fun `should contain correct picture path`(){
+            val evas = service.getEvangelions()
+            Assertions.assertTrue(evas[0].picture.contains("8080/pictures/"))
+        }
+    }
+
+    @Nested
     @DisplayName("getNonExistentEvangelion(name)")
     @TestInstance(TestInstance.Lifecycle.PER_CLASS)
     inner class GetNonExistentEvangelionByName {

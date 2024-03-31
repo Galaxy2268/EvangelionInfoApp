@@ -9,7 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest
 internal class CharacterServiceTest {
 
     @Autowired
-    private lateinit var characterService: CharacterService
+    private lateinit var service: CharacterService
 
     @Nested
     @DisplayName("getCharacters")
@@ -17,7 +17,7 @@ internal class CharacterServiceTest {
     inner class GetCharacters {
         @Test
         fun `should return a list of characters`() {
-            val characters = characterService.getCharacters()
+            val characters = service.getCharacters()
             Assertions.assertTrue(characters.isNotEmpty())
         }
     }
@@ -28,7 +28,7 @@ internal class CharacterServiceTest {
     inner class GetByName {
         @Test
         fun `should return character by name`() {
-            val character = characterService.getByName("Asuka")
+            val character = service.getByName("Asuka")
             Assertions.assertTrue(character.name == "Asuka" && character.rank == "Second Child")
         }
     }
@@ -39,8 +39,19 @@ internal class CharacterServiceTest {
     inner class GetByPk {
         @Test
         fun `should return character by pk`() {
-            val character = characterService.getByPk(1)
+            val character = service.getByPk(1)
             Assertions.assertTrue(character.name == "Asuka" && character.rank == "Second Child")
+        }
+    }
+
+    @Nested
+    @DisplayName("picturePathTest")
+    @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+    inner class PicturePathTest{
+        @Test
+        fun `should contain correct picture path`(){
+            val characters = service.getCharacters()
+            Assertions.assertTrue(characters[0].picture.contains("8080/pictures/"))
         }
     }
 
@@ -51,7 +62,7 @@ internal class CharacterServiceTest {
         @Test
         fun `should throw null pointer exception`() {
             Assertions.assertThrows(NullPointerException::class.java) {
-                characterService.getByName("Does not exist")
+                service.getByName("Does not exist")
             }
         }
     }
@@ -63,7 +74,7 @@ internal class CharacterServiceTest {
         @Test
         fun `should throw null pointer exception`() {
             Assertions.assertThrows(NullPointerException::class.java) {
-                characterService.getByPk(-1)
+                service.getByPk(-1)
             }
         }
     }

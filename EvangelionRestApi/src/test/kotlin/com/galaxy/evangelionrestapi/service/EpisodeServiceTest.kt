@@ -45,6 +45,17 @@ internal class EpisodeServiceTest {
     }
 
     @Nested
+    @DisplayName("picturePathTest")
+    @TestInstance(TestInstance.Lifecycle.PER_CLASS)
+    inner class PicturePathTest{
+        @Test
+        fun `should contain correct picture path`(){
+            val episodes = service.getEpisodes()
+            Assertions.assertTrue(episodes[0].picture.contains("8080/pictures/"))
+        }
+    }
+
+    @Nested
     @DisplayName("getNonExistentEpisode(number)")
     @TestInstance(TestInstance.Lifecycle.PER_CLASS)
     inner class GetNonExistentEpisodeByNumber {
