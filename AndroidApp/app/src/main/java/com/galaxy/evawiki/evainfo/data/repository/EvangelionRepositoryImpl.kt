@@ -3,23 +3,23 @@ package com.galaxy.evawiki.evainfo.data.repository
 import arrow.core.Either
 import com.galaxy.evawiki.evainfo.data.mapper.toNetworkError
 import com.galaxy.evawiki.evainfo.data.remote.EvangelionApi
-import com.galaxy.evawiki.evainfo.domain.repository.CharacterRepository
-import com.galaxy.evawiki.evainfo.domain.model.Character
+import com.galaxy.evawiki.evainfo.domain.model.Evangelion
 import com.galaxy.evawiki.evainfo.domain.model.NetworkError
+import com.galaxy.evawiki.evainfo.domain.repository.EvangelionRepository
 
-class CharacterRepositoryImpl(
+class EvangelionRepositoryImpl(
     private val api: EvangelionApi
-): CharacterRepository {
-    override suspend fun getCharacters(): Either<NetworkError, List<Character>> {
+): EvangelionRepository {
+    override suspend fun getEvahgelions(): Either<NetworkError, List<Evangelion>> {
         return Either.catch {
-            api.getCharacters()
-        }.mapLeft { it.toNetworkError() }
-
-    }
-
-    override suspend fun getCharacter(id: Int): Either<NetworkError, Character> {
-        return Either.catch {
-            api.getCharacter(id)
+            api.getEvangelions()
         }.mapLeft { it.toNetworkError() }
     }
+
+    override suspend fun getEvangelion(id: Int): Either<NetworkError, Evangelion> {
+        return Either.catch {
+            api.getEvangelion(id)
+        }.mapLeft { it.toNetworkError() }
+    }
+
 }

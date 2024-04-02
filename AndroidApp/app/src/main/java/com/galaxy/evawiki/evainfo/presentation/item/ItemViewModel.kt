@@ -20,10 +20,10 @@ class ItemViewModel @Inject constructor(
     val itemState: State<ItemState> = _itemState
 
     init {
-        savedStateHandle.get<String>("name")?.let {name->
-            if(name != ""){
+        savedStateHandle.get<Int>("id")?.let {id->
+            if(id != -1){
                 viewModelScope.launch {
-                    useCases.getCharacter(name).onRight { item->
+                    useCases.getCharacter(id).onRight { item->
                         _itemState.value = itemState.value.copy(item = item)
                     }.onLeft { error->
                         _itemState.value = itemState.value.copy(networkError = error)

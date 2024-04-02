@@ -50,7 +50,7 @@ fun ItemsScreen(
                     modifier = Modifier
                         .fillMaxSize()
                         .clickable {
-                            navController.navigate(Screen.ItemScreen.route + "?name=${item.name}")
+                            navController.navigate(Screen.ItemScreen.route + "?id=${item.pk}")
                         }
                 )
             }

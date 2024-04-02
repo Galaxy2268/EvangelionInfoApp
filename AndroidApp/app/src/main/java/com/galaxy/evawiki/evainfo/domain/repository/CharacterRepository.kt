@@ -8,6 +8,6 @@ interface CharacterRepository {
 
     suspend fun getCharacters(): Either<NetworkError, List<Character>>
 
-    suspend fun getCharacter(name: String): Either<NetworkError, Character>
+    suspend fun getCharacter(id: Int): Either<NetworkError, Character>
 
 }

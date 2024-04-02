@@ -1,7 +1,7 @@
 package com.galaxy.evawiki.evainfo.domain.model
 
 data class Character(
-    val id: Long,
+    val pk: Int,
     val name: String,
     val fullName: String,
     val rank: String,

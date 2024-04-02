@@ -38,13 +38,13 @@ class MainActivity : ComponentActivity() {
                             ItemsScreen(navController = navController)
                         }
                         composable(
-                            route = Screen.ItemScreen.route + "?name={name}",
+                            route = Screen.ItemScreen.route + "?id={id}",
                             arguments = listOf(
                                 navArgument(
-                                    name = "name"
+                                    name = "id"
                                 ){
-                                    type = NavType.StringType
-                                    defaultValue = ""
+                                    type = NavType.IntType
+                                    defaultValue = -1
                                 }
                             )
 
