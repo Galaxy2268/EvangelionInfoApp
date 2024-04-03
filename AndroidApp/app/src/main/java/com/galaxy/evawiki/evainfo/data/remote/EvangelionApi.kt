@@ -1,43 +1,39 @@
 package com.galaxy.evawiki.evainfo.data.remote
 
-import com.galaxy.evawiki.evainfo.domain.model.Angel
 import retrofit2.http.GET
 import retrofit2.http.Path
-import com.galaxy.evawiki.evainfo.domain.model.Character
-import com.galaxy.evawiki.evainfo.domain.model.Episode
-import com.galaxy.evawiki.evainfo.domain.model.Evangelion
-import com.galaxy.evawiki.evainfo.domain.model.Stuff
+import com.galaxy.evawiki.evainfo.domain.model.Item
 
 interface EvangelionApi {
 
     @GET("characters")
-    suspend fun getCharacters(): List<Character>
+    suspend fun getCharacters(): List<Item.Character>
 
     @GET("characters/id/{id}")
-    suspend fun getCharacter(@Path("id") id: Int): Character
+    suspend fun getCharacter(@Path("id") id: Int): Item.Character
 
     @GET("Angels")
-    suspend fun getAngels(): List<Angel>
+    suspend fun getAngels(): List<Item.Angel>
 
     @GET("Angels/id/{id}")
-    suspend fun getAngel(@Path("id") id: Int): Angel
+    suspend fun getAngel(@Path("id") id: Int): Item.Angel
 
     @GET("Evangelions")
-    suspend fun getEvangelions(): List<Evangelion>
+    suspend fun getEvangelions(): List<Item.Evangelion>
 
     @GET("Evangelions/id/{id}")
-    suspend fun getEvangelion(@Path("id") id: Int): Evangelion
+    suspend fun getEvangelion(@Path("id") id: Int): Item.Evangelion
 
     @GET("Episodes")
-    suspend fun getEpisodes(): List<Episode>
+    suspend fun getEpisodes(): List<Item.Episode>
 
     @GET("Episodes/id/{id}")
-    suspend fun getEpisode(@Path("id") id: Int): Episode
+    suspend fun getEpisode(@Path("id") id: Int): Item.Episode
 
     @GET("Stuff")
-    suspend fun getStuff(): List<Stuff>
+    suspend fun getStuff(): List<Item.Stuff>
 
     @GET("Stuff/id/{id}")
-    suspend fun getSingleStuff(@Path("id") id: Int): Stuff
+    suspend fun getSingleStuff(@Path("id") id: Int): Item.Stuff
 
 }

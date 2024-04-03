@@ -20,11 +20,11 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.galaxy.evawiki.evainfo.domain.model.Character
+import com.galaxy.evawiki.evainfo.domain.model.Item
 
 @Composable
 fun ItemsCard(
-    item: Character,
+    character: Item.Character,
     modifier: Modifier = Modifier,
     cornerRadius: Dp = 16.dp,
     imageCornerRadius: Dp = 8.dp,
@@ -45,7 +45,7 @@ fun ItemsCard(
                     .padding(16.dp)
             ) {
                 AsyncImage(
-                    model = item.picture,
+                    model = character.picture,
                     contentDescription = "Character",
                     modifier = Modifier
                         .aspectRatio(1f)
@@ -54,21 +54,21 @@ fun ItemsCard(
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = item.fullName,
+                    text = character.fullName,
                     style = MaterialTheme.typography.labelLarge,
                     color = MaterialTheme.colorScheme.onPrimaryContainer,
                     maxLines = 1
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = item.rank,
+                    text = character.rank,
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.onPrimaryContainer,
                     maxLines = 1
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = item.bio,
+                    text = character.bio,
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onPrimaryContainer,
                     maxLines = 4,

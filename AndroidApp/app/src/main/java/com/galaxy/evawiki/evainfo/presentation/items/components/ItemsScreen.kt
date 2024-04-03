@@ -17,6 +17,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.galaxy.evawiki.evainfo.domain.model.Item
 import com.galaxy.evawiki.evainfo.presentation.items.ItemsViewModel
 import com.galaxy.evawiki.evainfo.presentation.util.Screen
 
@@ -45,14 +46,22 @@ fun ItemsScreen(
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             items(state.items) { item ->
-                ItemsCard(
-                    item = item,
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .clickable {
-                            navController.navigate(Screen.ItemScreen.route + "?id=${item.pk}")
-                        }
-                )
+                when(item){
+                    is Item.Character -> {
+                        ItemsCard(
+                            character = item,
+                            modifier = Modifier
+                                .fillMaxSize()
+                                .clickable {
+                                    navController.navigate(Screen.ItemScreen.route + "?id=${item.pk}")
+                                }
+                        )
+                    }
+                    else -> {
+                        //Todo
+                    }
+
+                }
             }
 
 

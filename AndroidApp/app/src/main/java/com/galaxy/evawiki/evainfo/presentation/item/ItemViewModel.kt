@@ -6,6 +6,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.galaxy.evawiki.evainfo.domain.usecases.ItemUseCases
+import com.galaxy.evawiki.evainfo.domain.usecases.util.ItemType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -23,7 +24,7 @@ class ItemViewModel @Inject constructor(
         savedStateHandle.get<Int>("id")?.let {id->
             if(id != -1){
                 viewModelScope.launch {
-                    useCases.getCharacter(id).onRight { item->
+                    useCases.getItem(ItemType.CharacterType, id).onRight { item->
                         _itemState.value = itemState.value.copy(item = item)
                     }.onLeft { error->
                         _itemState.value = itemState.value.copy(networkError = error)

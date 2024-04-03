@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.galaxy.evawiki.evainfo.domain.usecases.ItemUseCases
+import com.galaxy.evawiki.evainfo.domain.usecases.util.ItemType
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -22,9 +23,11 @@ class ItemsViewModel @Inject constructor(
     }
 
 
+
+
     private fun getCharacters(){
         viewModelScope.launch {
-            useCases.getCharacters().onRight {characters->
+            useCases.getItems(ItemType.CharacterType).onRight { characters->
                 _state.value = state.value.copy(items = characters)
             }.onLeft {networkError->
                 _state.value = state.value.copy(error = networkError)
