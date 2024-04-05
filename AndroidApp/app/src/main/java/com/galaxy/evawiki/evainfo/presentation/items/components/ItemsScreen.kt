@@ -46,30 +46,24 @@ fun ItemsScreen(
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             items(state.items) { item ->
-                when(item){
-                    is Item.Character -> {
-                        ItemsCard(
-                            character = item,
-                            modifier = Modifier
-                                .fillMaxSize()
-                                .clickable {
-                                    navController.navigate(Screen.ItemScreen.route + "?id=${item.pk}")
-                                }
-                        )
-                    }
-                    else -> {
-                        //Todo
-                    }
+                ItemsCard(
+                    item = item,
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .clickable {
+                            val id = viewModel.getItemId(item)
+                            navController.navigate("${Screen.ItemScreen.route}?id=$id")
+                        }
+                )
 
-                }
             }
-
-
         }
 
 
     }
 
 
-
 }
+
+
+

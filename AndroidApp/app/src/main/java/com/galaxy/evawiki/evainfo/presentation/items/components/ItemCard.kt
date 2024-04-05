@@ -24,7 +24,7 @@ import com.galaxy.evawiki.evainfo.domain.model.Item
 
 @Composable
 fun ItemsCard(
-    character: Item.Character,
+    item: Item,
     modifier: Modifier = Modifier,
     cornerRadius: Dp = 16.dp,
     imageCornerRadius: Dp = 8.dp,
@@ -45,7 +45,14 @@ fun ItemsCard(
                     .padding(16.dp)
             ) {
                 AsyncImage(
-                    model = character.picture,
+                    model = when(item){
+                        is Item.Character -> item.picture
+                        is Item.Stuff -> item.picture
+                        is Item.Angel -> item.picture
+                        is Item.Episode -> item.picture
+                        is Item.Evangelion -> item.picture
+                    },
+
                     contentDescription = "Character",
                     modifier = Modifier
                         .aspectRatio(1f)
@@ -54,21 +61,39 @@ fun ItemsCard(
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = character.fullName,
+                    text = when(item){
+                        is Item.Character -> item.fullName
+                        is Item.Stuff -> item.name
+                        is Item.Angel -> item.name
+                        is Item.Episode -> item.name
+                        is Item.Evangelion -> item.name
+                    },
                     style = MaterialTheme.typography.labelLarge,
                     color = MaterialTheme.colorScheme.onPrimaryContainer,
                     maxLines = 1
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = character.rank,
+                    text = when(item){
+                        is Item.Character -> item.rank
+                        is Item.Stuff -> ""
+                        is Item.Angel -> item.meaning
+                        is Item.Episode -> item.number
+                        is Item.Evangelion -> item.pilot
+                    },
                     style = MaterialTheme.typography.labelMedium,
                     color = MaterialTheme.colorScheme.onPrimaryContainer,
                     maxLines = 1
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(
-                    text = character.bio,
+                    text = when(item){
+                        is Item.Character -> item.bio
+                        is Item.Stuff -> item.info
+                        is Item.Angel -> item.info
+                        is Item.Episode -> item.info
+                        is Item.Evangelion -> item.info
+                    },
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onPrimaryContainer,
                     maxLines = 4,

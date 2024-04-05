@@ -44,8 +44,7 @@ object AppModule {
     ): ItemUseCases {
         return ItemUseCases(
             getItem = GetItem(itemRepository),
-            getItems = GetItems(itemRepository)
-
+            getItems = GetItems(itemRepository),
         )
     }
 

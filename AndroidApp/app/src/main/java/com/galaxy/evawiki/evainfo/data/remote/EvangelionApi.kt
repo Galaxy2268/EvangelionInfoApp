@@ -12,28 +12,28 @@ interface EvangelionApi {
     @GET("characters/id/{id}")
     suspend fun getCharacter(@Path("id") id: Int): Item.Character
 
-    @GET("Angels")
+    @GET("angels")
     suspend fun getAngels(): List<Item.Angel>
 
-    @GET("Angels/id/{id}")
+    @GET("angels/id/{id}")
     suspend fun getAngel(@Path("id") id: Int): Item.Angel
 
-    @GET("Evangelions")
+    @GET("evangelions")
     suspend fun getEvangelions(): List<Item.Evangelion>
 
-    @GET("Evangelions/id/{id}")
+    @GET("evangelions/id/{id}")
     suspend fun getEvangelion(@Path("id") id: Int): Item.Evangelion
 
-    @GET("Episodes")
+    @GET("episodes")
     suspend fun getEpisodes(): List<Item.Episode>
 
-    @GET("Episodes/id/{id}")
+    @GET("episodes/id/{id}")
     suspend fun getEpisode(@Path("id") id: Int): Item.Episode
 
-    @GET("Stuff")
+    @GET("stuff")
     suspend fun getStuff(): List<Item.Stuff>
 
-    @GET("Stuff/id/{id}")
+    @GET("stuff/id/{id}")
     suspend fun getSingleStuff(@Path("id") id: Int): Item.Stuff
 
 }
