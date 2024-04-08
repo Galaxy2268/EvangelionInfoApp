@@ -1,15 +1,12 @@
 package com.galaxy.evawiki.evainfo.presentation.items
 
-import android.util.Log
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.NavController
 import com.galaxy.evawiki.evainfo.domain.model.Item
 import com.galaxy.evawiki.evainfo.domain.usecases.ItemUseCases
 import com.galaxy.evawiki.evainfo.domain.usecases.util.ItemType
-import com.galaxy.evawiki.evainfo.presentation.util.Screen
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -27,7 +24,34 @@ class ItemsViewModel @Inject constructor(
     }
 
     fun onEvent(event: ItemsEvent){
+        when(event){
+            is ItemsEvent.ToggleFilterSection ->{
+                _state.value = state.value.copy(
+                    isFilterSectionVisible = !state.value.isFilterSectionVisible
+                )
+            }
+            is ItemsEvent.GetItems ->{
+                if(event.itemType::class == state.value.currentItem::class) return
 
+                when(event.itemType){
+                    is ItemType.EvangelionType -> getEvangelions()
+                    is ItemType.AngelType -> getAngels()
+                    is ItemType.CharacterType -> getCharacters()
+                    is ItemType.EpisodeType -> getEpisodes()
+                    is ItemType.StuffType -> getStuff()
+                }
+            }
+        }
+    }
+
+    fun mapType(itemType: ItemType): String{
+        return when(itemType){
+            is ItemType.CharacterType -> "CharacterType"
+            is ItemType.EvangelionType -> "EvangelionType"
+            is ItemType.AngelType -> "AngelType"
+            is ItemType.EpisodeType -> "EpisodeType"
+            is ItemType.StuffType -> "StuffType"
+        }
     }
 
 
@@ -35,6 +59,7 @@ class ItemsViewModel @Inject constructor(
 
     private fun getCharacters(){
         viewModelScope.launch {
+            _state.value = state.value.copy(currentItem = ItemType.CharacterType)
             useCases.getItems(ItemType.CharacterType).onRight { characters->
                 _state.value = state.value.copy(items = characters)
             }.onLeft {networkError->
@@ -45,6 +70,7 @@ class ItemsViewModel @Inject constructor(
 
     private fun getStuff(){
         viewModelScope.launch {
+            _state.value = state.value.copy(currentItem = ItemType.StuffType)
             useCases.getItems(ItemType.StuffType).onRight { stuff->
                 _state.value = state.value.copy(items = stuff)
             }.onLeft {networkError->
@@ -55,6 +81,7 @@ class ItemsViewModel @Inject constructor(
 
     private fun getAngels(){
         viewModelScope.launch {
+            _state.value = state.value.copy(currentItem = ItemType.AngelType)
             useCases.getItems(ItemType.AngelType).onRight { angels->
                 _state.value = state.value.copy(items = angels)
             }.onLeft {networkError->
@@ -65,6 +92,7 @@ class ItemsViewModel @Inject constructor(
 
     private fun getEpisodes(){
         viewModelScope.launch {
+            _state.value = state.value.copy(currentItem = ItemType.EpisodeType)
             useCases.getItems(ItemType.EpisodeType).onRight { episodes->
                 _state.value = state.value.copy(items = episodes)
             }.onLeft {networkError->
@@ -75,6 +103,7 @@ class ItemsViewModel @Inject constructor(
 
     private fun getEvangelions(){
         viewModelScope.launch {
+            _state.value = state.value.copy(currentItem = ItemType.EvangelionType)
             useCases.getItems(ItemType.EvangelionType).onRight { evangelions->
                 _state.value = state.value.copy(items = evangelions)
             }.onLeft {networkError->

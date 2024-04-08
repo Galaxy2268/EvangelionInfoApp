@@ -73,19 +73,21 @@ fun ItemsCard(
                     maxLines = 1
                 )
                 Spacer(modifier = Modifier.height(8.dp))
-                Text(
-                    text = when(item){
-                        is Item.Character -> item.rank
-                        is Item.Stuff -> ""
-                        is Item.Angel -> item.meaning
-                        is Item.Episode -> item.number
-                        is Item.Evangelion -> item.pilot
-                    },
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.onPrimaryContainer,
-                    maxLines = 1
-                )
-                Spacer(modifier = Modifier.height(8.dp))
+                if (item !is Item.Stuff){
+                    Text(
+                        text = when(item){
+                            is Item.Character -> item.rank
+                            is Item.Angel -> item.meaning
+                            is Item.Episode -> item.number
+                            is Item.Evangelion -> item.pilot
+                            else -> ""
+                        },
+                        style = MaterialTheme.typography.labelMedium,
+                        color = MaterialTheme.colorScheme.onPrimaryContainer,
+                        maxLines = 1
+                    )
+                    Spacer(modifier = Modifier.height(8.dp))
+                }
                 Text(
                     text = when(item){
                         is Item.Character -> item.bio

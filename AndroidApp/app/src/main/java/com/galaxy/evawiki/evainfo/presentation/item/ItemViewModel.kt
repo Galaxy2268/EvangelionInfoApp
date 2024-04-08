@@ -14,17 +14,18 @@ import javax.inject.Inject
 @HiltViewModel
 class ItemViewModel @Inject constructor(
     private val useCases: ItemUseCases,
-    savedStateHandle: SavedStateHandle
+    private val savedStateHandle: SavedStateHandle
 ): ViewModel() {
 
     private val _itemState = mutableStateOf(ItemState())
     val itemState: State<ItemState> = _itemState
 
-    init {
+
+    fun getItem(itemType: ItemType){
         savedStateHandle.get<Int>("id")?.let {id->
             if(id != -1){
                 viewModelScope.launch {
-                    useCases.getItem(ItemType.CharacterType, id).onRight { item->
+                    useCases.getItem(itemType, id).onRight { item->
                         _itemState.value = itemState.value.copy(item = item)
                     }.onLeft { error->
                         _itemState.value = itemState.value.copy(networkError = error)
@@ -33,6 +34,10 @@ class ItemViewModel @Inject constructor(
             }
         }
     }
+
+
+
+
 
 
 }
