@@ -98,13 +98,13 @@ fun ItemsScreen(
                         .fillMaxSize()
                         .clickable {
                             val id = viewModel.getItemId(item)
-                            Log.d("typeTest", "${state.currentItem}")
                             navController.navigate("${Screen.ItemScreen.route}?id=$id&type=${state.currentItem}")
                         }
                 )
 
             }
         }
+        Text(text = state.currentItem.toString())
 
 
     }

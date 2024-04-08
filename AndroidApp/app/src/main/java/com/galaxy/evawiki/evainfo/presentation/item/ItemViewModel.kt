@@ -21,17 +21,30 @@ class ItemViewModel @Inject constructor(
     val itemState: State<ItemState> = _itemState
 
 
-    fun getItem(itemType: ItemType){
+    init{
+        val type = savedStateHandle.get<String>("type")?.let { typeMapper(it) }
+        println("test")
         savedStateHandle.get<Int>("id")?.let {id->
-            if(id != -1){
+            if(id != -1 && type != null){
                 viewModelScope.launch {
-                    useCases.getItem(itemType, id).onRight { item->
+                    useCases.getItem(type, id).onRight { item->
                         _itemState.value = itemState.value.copy(item = item)
                     }.onLeft { error->
                         _itemState.value = itemState.value.copy(networkError = error)
                     }
                 }
             }
+        }
+    }
+
+    private fun typeMapper(type: String): ItemType{
+        return when(type){
+            "CharacterType" -> ItemType.CharacterType
+            "EvangelionType" -> ItemType.EvangelionType
+            "EpisodeType" -> ItemType.EpisodeType
+            "AngelType" -> ItemType.AngelType
+            "StuffType" -> ItemType.StuffType
+            else -> throw IllegalArgumentException("illegal type")
         }
     }
 

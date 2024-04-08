@@ -39,7 +39,7 @@ class MainActivity : ComponentActivity() {
                             ItemsScreen(navController = navController)
                         }
                         composable(
-                            route = Screen.ItemScreen.route + "?id={id}",
+                            route = Screen.ItemScreen.route + "?id={id}&type={type}",
                             arguments = listOf(
                                 navArgument(name = "id"){
                                     type = NavType.IntType
