@@ -68,7 +68,7 @@ fun CharacterFullCard(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 8.dp),
-                    title = "Name:",
+                    title = "Name",
                     text = character.fullName
                 )
                 Spacer(modifier = Modifier.height(16.dp))
@@ -76,7 +76,7 @@ fun CharacterFullCard(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 8.dp),
-                    title = "Age:",
+                    title = "Age",
                     text = "${character.age} (born ${character.dateOfBirth})"
                 )
                 Spacer(modifier = Modifier.height(16.dp))
@@ -84,7 +84,7 @@ fun CharacterFullCard(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 8.dp),
-                    title = "Rank:",
+                    title = "Rank",
                     text = character.rank
                 )
                 Spacer(modifier = Modifier.height(16.dp))
@@ -92,7 +92,7 @@ fun CharacterFullCard(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 8.dp),
-                    title = "Blood Type:",
+                    title = "Blood Type",
                     text = character.bloodType
                 )
                 Spacer(modifier = Modifier.height(32.dp))
