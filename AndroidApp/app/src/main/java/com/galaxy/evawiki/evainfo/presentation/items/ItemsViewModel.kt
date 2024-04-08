@@ -44,17 +44,6 @@ class ItemsViewModel @Inject constructor(
         }
     }
 
-    fun mapType(itemType: ItemType): String{
-        return when(itemType){
-            is ItemType.CharacterType -> "CharacterType"
-            is ItemType.EvangelionType -> "EvangelionType"
-            is ItemType.AngelType -> "AngelType"
-            is ItemType.EpisodeType -> "EpisodeType"
-            is ItemType.StuffType -> "StuffType"
-        }
-    }
-
-
 
 
     private fun getCharacters(){
