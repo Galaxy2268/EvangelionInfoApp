@@ -1,10 +1,7 @@
-package com.galaxy.evawiki.evainfo.presentation.item.components
+package com.galaxy.evawiki.evainfo.presentation.item.components.fullcards
 
-import androidx.compose.foundation.gestures.scrollable
-import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
@@ -17,28 +14,24 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.layout.HorizontalAlignmentLine
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.galaxy.evawiki.evainfo.domain.model.Item
-import org.intellij.lang.annotations.JdkConstants.HorizontalAlignment
+import com.galaxy.evawiki.evainfo.presentation.item.components.InfoSection
+import com.galaxy.evawiki.evainfo.presentation.item.components.TextRow
 
 @Composable
-fun CharacterFullCard(
+fun EpisodeFullCard(
     modifier: Modifier = Modifier,
-    character: Item.Character,
+    episode: Item.Episode,
     cornerRadius: Dp = 16.dp,
     imageCornerRadius: Dp = 8.dp,
     elevation: Dp = 8.dp
-
 ){
     Box(modifier = modifier) {
         ElevatedCard(
@@ -56,8 +49,8 @@ fun CharacterFullCard(
                     .verticalScroll(rememberScrollState())
             ) {
                 AsyncImage(
-                    model = character.picture,
-                    contentDescription = "Character",
+                    model = episode.picture,
+                    contentDescription = "Episode",
                     modifier = Modifier
                         .aspectRatio(1f)
                         .clip(RoundedCornerShape(imageCornerRadius)),
@@ -69,37 +62,45 @@ fun CharacterFullCard(
                         .fillMaxWidth()
                         .padding(horizontal = 8.dp),
                     title = "Name",
-                    text = character.fullName
+                    text = episode.name
                 )
                 Spacer(modifier = Modifier.height(16.dp))
                 TextRow(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 8.dp),
-                    title = "Age",
-                    text = "${character.age} (born ${character.dateOfBirth})"
+                    title = "Number",
+                    text = episode.number
                 )
                 Spacer(modifier = Modifier.height(16.dp))
                 TextRow(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 8.dp),
-                    title = "Rank",
-                    text = character.rank
+                    title = "Air Date",
+                    text = episode.airDate
                 )
                 Spacer(modifier = Modifier.height(16.dp))
                 TextRow(
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(horizontal = 8.dp),
-                    title = "Blood Type",
-                    text = character.bloodType
+                    title = "Director",
+                    text = episode.director
+                )
+                Spacer(modifier = Modifier.height(16.dp))
+                TextRow(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 8.dp),
+                    title = "Writer",
+                    text = episode.writer
                 )
                 Spacer(modifier = Modifier.height(32.dp))
                 InfoSection(
                     modifier = Modifier.padding(horizontal = 8.dp),
-                    title = "Biography",
-                    text = character.bio
+                    title = "Information",
+                    text = episode.info
                 )
             }
         }
