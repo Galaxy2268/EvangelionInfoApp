@@ -5,7 +5,7 @@ Evangelion Wiki App is fullstack Android App with BE written in kotlin
 ## Back End
 
 - BE is Rest API with simple get endpoints
-- Data contains in local MySQL data base.
+- Data contains in local MySQL data base
 - Rest Api is written using kotlin Spring Boot framework
 - Unit tests are written using JUnit 5
 
