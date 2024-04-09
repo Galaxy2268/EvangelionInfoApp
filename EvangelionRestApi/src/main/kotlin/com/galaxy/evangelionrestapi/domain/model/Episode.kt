@@ -9,12 +9,12 @@ import jakarta.persistence.Table
 @Table(name = "episodes")
 class Episode(
     @Id @GeneratedValue
-    var pk: Long = 0,
-    var number: String = "",
-    var name: String = "",
-    var director: String = "",
-    var writer: String = "",
-    var airDate: String = "",
-    var info: String = "",
-    var picture: String = ""
+    var pk: Long,
+    var number: String,
+    var name: String,
+    var director: String,
+    var writer: String,
+    var airDate: String,
+    var info: String,
+    var picture: String
 )

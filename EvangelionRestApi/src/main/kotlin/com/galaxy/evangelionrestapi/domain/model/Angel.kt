@@ -9,11 +9,11 @@ import jakarta.persistence.Table
 @Table(name = "angels")
 class Angel(
     @Id @GeneratedValue
-    var pk: Long = 0,
-    var name: String = "",
-    var meaning: String = "",
-    var symbolism: String = "",
-    var number: Int = 0,
-    var info: String = "",
-    var picture: String = ""
+    var pk: Long,
+    var name: String,
+    var meaning: String,
+    var symbolism: String,
+    var number: Int,
+    var info: String,
+    var picture: String
 )

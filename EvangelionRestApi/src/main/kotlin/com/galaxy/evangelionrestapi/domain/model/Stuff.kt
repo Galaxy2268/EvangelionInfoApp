@@ -9,8 +9,8 @@ import jakarta.persistence.Table
 @Table(name = "stuff")
 class Stuff(
     @Id @GeneratedValue
-    var pk: Long = 0,
-    var name: String = "",
-    var info: String = "",
-    var picture: String = ""
+    var pk: Long,
+    var name: String,
+    var info: String,
+    var picture: String
 )
