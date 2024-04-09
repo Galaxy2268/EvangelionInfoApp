@@ -2,6 +2,10 @@
 
 Evangelion Wiki App is fullstack Android App with BE written in kotlin
 
+## Architecture
+
+![Architecture](ReadmeRes/Architecture.jpg)
+
 ## Back End
 
 - BE is Rest API with simple get endpoints
