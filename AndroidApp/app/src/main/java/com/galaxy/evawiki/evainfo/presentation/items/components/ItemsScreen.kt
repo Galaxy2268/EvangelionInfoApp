@@ -1,6 +1,5 @@
 package com.galaxy.evawiki.evainfo.presentation.items.components
 
-import android.util.Log
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -30,7 +29,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.galaxy.evawiki.evainfo.domain.model.Item
 import com.galaxy.evawiki.evainfo.presentation.items.ItemsEvent
 import com.galaxy.evawiki.evainfo.presentation.items.ItemsViewModel
 import com.galaxy.evawiki.evainfo.presentation.util.Screen

@@ -1,8 +1,8 @@
 package com.galaxy.evawiki.evainfo.data.remote
 
+import com.galaxy.evawiki.evainfo.domain.model.Item
 import retrofit2.http.GET
 import retrofit2.http.Path
-import com.galaxy.evawiki.evainfo.domain.model.Item
 
 interface EvangelionApi {
 

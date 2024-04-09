@@ -31,7 +31,9 @@ fun EpisodeFullCard(
     episode: Item.Episode,
     cornerRadius: Dp = 16.dp,
     imageCornerRadius: Dp = 8.dp,
-    elevation: Dp = 8.dp
+    elevation: Dp = 8.dp,
+    verticalItemSpacing: Dp = 16.dp,
+    horizontalItemSpacing: Dp = 8.dp
 ){
     Box(modifier = modifier) {
         ElevatedCard(
@@ -56,49 +58,49 @@ fun EpisodeFullCard(
                         .clip(RoundedCornerShape(imageCornerRadius)),
                     contentScale = ContentScale.FillBounds,
                 )
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(verticalItemSpacing))
                 TextRow(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 8.dp),
+                        .padding(horizontal = horizontalItemSpacing),
                     title = "Name",
                     text = episode.name
                 )
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(verticalItemSpacing))
                 TextRow(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 8.dp),
+                        .padding(horizontal = horizontalItemSpacing),
                     title = "Number",
                     text = episode.number
                 )
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(verticalItemSpacing))
                 TextRow(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 8.dp),
+                        .padding(horizontal = horizontalItemSpacing),
                     title = "Air Date",
                     text = episode.airDate
                 )
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(verticalItemSpacing))
                 TextRow(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 8.dp),
+                        .padding(horizontal = horizontalItemSpacing),
                     title = "Director",
                     text = episode.director
                 )
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(verticalItemSpacing))
                 TextRow(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 8.dp),
+                        .padding(horizontal = horizontalItemSpacing),
                     title = "Writer",
                     text = episode.writer
                 )
                 Spacer(modifier = Modifier.height(32.dp))
                 InfoSection(
-                    modifier = Modifier.padding(horizontal = 8.dp),
+                    modifier = Modifier.padding(horizontal = horizontalItemSpacing),
                     title = "Information",
                     text = episode.info
                 )

@@ -24,31 +24,31 @@ fun ItemScreen(
         is Item.Character -> {
             CharacterFullCard(
                 character = state.item,
-                modifier = Modifier.padding(16.dp)
+                modifier = Modifier.padding(8.dp)
             )
         }
         is Item.Angel -> {
             AngelFullCard(
                 angel = state.item,
-                modifier = Modifier.padding(16.dp)
+                modifier = Modifier.padding(8.dp)
             )
         }
         is Item.Episode -> {
             EpisodeFullCard(
                 episode = state.item,
-                modifier = Modifier.padding(16.dp)
+                modifier = Modifier.padding(8.dp)
             )
         }
         is Item.Evangelion -> {
             EvangelionFullCard(
                 evangelion = state.item,
-                modifier = Modifier.padding(16.dp)
+                modifier = Modifier.padding(8.dp)
             )
         }
         is Item.Stuff -> {
             StuffFullCard(
                 stuff = state.item,
-                modifier = Modifier.padding(16.dp)
+                modifier = Modifier.padding(8.dp)
             )
         }
         null -> Text(text = "ERROR")

@@ -42,7 +42,7 @@ fun ItemsCard(
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(16.dp)
+                    .padding(10.dp)
             ) {
                 AsyncImage(
                     model = when(item){
@@ -59,7 +59,7 @@ fun ItemsCard(
                         .clip(RoundedCornerShape(imageCornerRadius)),
                     contentScale = ContentScale.FillBounds,
                 )
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(4.dp))
                 Text(
                     text = when(item){
                         is Item.Character -> item.fullName
@@ -72,7 +72,7 @@ fun ItemsCard(
                     color = MaterialTheme.colorScheme.onPrimaryContainer,
                     maxLines = 1
                 )
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(4.dp))
                 if (item !is Item.Stuff){
                     Text(
                         text = when(item){
@@ -86,7 +86,7 @@ fun ItemsCard(
                         color = MaterialTheme.colorScheme.onPrimaryContainer,
                         maxLines = 1
                     )
-                    Spacer(modifier = Modifier.height(8.dp))
+                    Spacer(modifier = Modifier.height(4.dp))
                 }
                 Text(
                     text = when(item){
@@ -98,7 +98,7 @@ fun ItemsCard(
                     },
                     style = MaterialTheme.typography.labelSmall,
                     color = MaterialTheme.colorScheme.onPrimaryContainer,
-                    maxLines = 4,
+                    maxLines = 3,
                     overflow = TextOverflow.Ellipsis
                 )
             }

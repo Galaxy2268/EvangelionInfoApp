@@ -31,7 +31,9 @@ fun EvangelionFullCard(
     evangelion: Item.Evangelion,
     cornerRadius: Dp = 16.dp,
     imageCornerRadius: Dp = 8.dp,
-    elevation: Dp = 8.dp
+    elevation: Dp = 8.dp,
+    verticalItemSpacing: Dp = 16.dp,
+    horizontalItemSpacing: Dp = 8.dp
 ){
     Box(modifier = modifier) {
         ElevatedCard(
@@ -56,41 +58,41 @@ fun EvangelionFullCard(
                         .clip(RoundedCornerShape(imageCornerRadius)),
                     contentScale = ContentScale.FillBounds,
                 )
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(verticalItemSpacing))
                 TextRow(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 8.dp),
+                        .padding(horizontal = horizontalItemSpacing),
                     title = "Name",
                     text = evangelion.name
                 )
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(verticalItemSpacing))
                 TextRow(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 8.dp),
+                        .padding(horizontal = horizontalItemSpacing),
                     title = "Model",
                     text = evangelion.model
                 )
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(verticalItemSpacing))
                 TextRow(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 8.dp),
+                        .padding(horizontal = horizontalItemSpacing),
                     title = "Pilot",
                     text = evangelion.pilot
                 )
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(verticalItemSpacing))
                 TextRow(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 8.dp),
+                        .padding(horizontal = horizontalItemSpacing),
                     title = "Soul",
                     text = evangelion.soul
                 )
                 Spacer(modifier = Modifier.height(32.dp))
                 InfoSection(
-                    modifier = Modifier.padding(horizontal = 8.dp),
+                    modifier = Modifier.padding(horizontal = horizontalItemSpacing),
                     title = "Information",
                     text = evangelion.info
                 )

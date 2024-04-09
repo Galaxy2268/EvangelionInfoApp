@@ -31,7 +31,9 @@ fun CharacterFullCard(
     character: Item.Character,
     cornerRadius: Dp = 16.dp,
     imageCornerRadius: Dp = 8.dp,
-    elevation: Dp = 8.dp
+    elevation: Dp = 8.dp,
+    verticalItemSpacing: Dp = 16.dp,
+    horizontalItemSpacing: Dp = 8.dp
 
 ){
     Box(modifier = modifier) {
@@ -57,41 +59,41 @@ fun CharacterFullCard(
                         .clip(RoundedCornerShape(imageCornerRadius)),
                     contentScale = ContentScale.FillBounds,
                 )
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(verticalItemSpacing))
                 TextRow(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 8.dp),
+                        .padding(horizontal = horizontalItemSpacing),
                     title = "Name",
                     text = character.fullName
                 )
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(verticalItemSpacing))
                 TextRow(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 8.dp),
+                        .padding(horizontal = horizontalItemSpacing),
                     title = "Age",
                     text = "${character.age} (born ${character.dateOfBirth})"
                 )
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(verticalItemSpacing))
                 TextRow(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 8.dp),
+                        .padding(horizontal = horizontalItemSpacing),
                     title = "Rank",
                     text = character.rank
                 )
-                Spacer(modifier = Modifier.height(16.dp))
+                Spacer(modifier = Modifier.height(verticalItemSpacing))
                 TextRow(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 8.dp),
+                        .padding(horizontal = horizontalItemSpacing),
                     title = "Blood Type",
                     text = character.bloodType
                 )
                 Spacer(modifier = Modifier.height(32.dp))
                 InfoSection(
-                    modifier = Modifier.padding(horizontal = 8.dp),
+                    modifier = Modifier.padding(horizontal = horizontalItemSpacing),
                     title = "Biography",
                     text = character.bio
                 )
