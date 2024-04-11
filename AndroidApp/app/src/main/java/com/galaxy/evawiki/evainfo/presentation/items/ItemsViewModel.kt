@@ -7,6 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.galaxy.evawiki.evainfo.domain.model.Item
 import com.galaxy.evawiki.evainfo.domain.usecases.ItemUseCases
 import com.galaxy.evawiki.evainfo.domain.usecases.util.ItemType
+import com.galaxy.evawiki.evainfo.presentation.util.sendEvent
+import com.galaxy.evawiki.util.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -53,6 +55,7 @@ class ItemsViewModel @Inject constructor(
                 _state.value = state.value.copy(items = characters)
             }.onLeft {networkError->
                 _state.value = state.value.copy(error = networkError)
+                sendEvent(Event.Toast(networkError.error.message))
             }
         }
     }
@@ -64,6 +67,7 @@ class ItemsViewModel @Inject constructor(
                 _state.value = state.value.copy(items = stuff)
             }.onLeft {networkError->
                 _state.value = state.value.copy(error = networkError)
+                sendEvent(Event.Toast(networkError.error.message))
             }
         }
     }
@@ -75,6 +79,7 @@ class ItemsViewModel @Inject constructor(
                 _state.value = state.value.copy(items = angels)
             }.onLeft {networkError->
                 _state.value = state.value.copy(error = networkError)
+                sendEvent(Event.Toast(networkError.error.message))
             }
         }
     }
@@ -86,6 +91,7 @@ class ItemsViewModel @Inject constructor(
                 _state.value = state.value.copy(items = episodes)
             }.onLeft {networkError->
                 _state.value = state.value.copy(error = networkError)
+                sendEvent(Event.Toast(networkError.error.message))
             }
         }
     }
@@ -97,6 +103,7 @@ class ItemsViewModel @Inject constructor(
                 _state.value = state.value.copy(items = evangelions)
             }.onLeft {networkError->
                 _state.value = state.value.copy(error = networkError)
+                sendEvent(Event.Toast(networkError.error.message))
             }
         }
     }
