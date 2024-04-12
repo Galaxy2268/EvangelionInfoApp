@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
                 val lifecycle = LocalLifecycleOwner.current.lifecycle
                 LaunchedEffect(key1 = lifecycle) {
                     repeatOnLifecycle(state = Lifecycle.State.STARTED){
-                        EventBus.events.collect(){event ->
+                        EventBus.events.collect { event ->
                             if(event is Event.Toast){
                                 Toast.makeText(this@MainActivity, event.message, Toast.LENGTH_SHORT).show()
                             }

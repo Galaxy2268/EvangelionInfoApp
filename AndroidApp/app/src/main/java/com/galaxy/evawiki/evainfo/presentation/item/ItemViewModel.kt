@@ -7,6 +7,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.galaxy.evawiki.evainfo.domain.usecases.ItemUseCases
 import com.galaxy.evawiki.evainfo.domain.usecases.util.ItemType
+import com.galaxy.evawiki.evainfo.presentation.util.sendEvent
+import com.galaxy.evawiki.util.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -23,14 +25,14 @@ class ItemViewModel @Inject constructor(
 
     init{
         val type = savedStateHandle.get<String>("type")?.let { typeMapper(it) }
-        println("test")
         savedStateHandle.get<Int>("id")?.let {id->
             if(id != -1 && type != null){
                 viewModelScope.launch {
                     useCases.getItem(type, id).onRight { item->
                         _itemState.value = itemState.value.copy(item = item)
-                    }.onLeft { error->
-                        _itemState.value = itemState.value.copy(networkError = error)
+                    }.onLeft { networkError->
+                        _itemState.value = itemState.value.copy(networkError = networkError)
+                        sendEvent(Event.Toast(networkError.error.message))
                     }
                 }
             }

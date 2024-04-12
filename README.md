@@ -23,6 +23,5 @@ Evangelion Wiki App is fullstack Android App with BE written in kotlin
 ## Todo
 
 - Create unit and ui tests for Android app
-- Create EventBus for exceptions in Android app
 - Add more data to DB
 - Structurise data more efficient
