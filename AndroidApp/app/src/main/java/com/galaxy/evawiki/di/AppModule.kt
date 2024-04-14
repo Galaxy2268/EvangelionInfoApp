@@ -37,9 +37,10 @@ object AppModule {
     }
 
 
+
     @Provides
     @Singleton
-    fun provideCharacterUseCases(
+    fun provideItemUseCases(
         itemRepository: ItemRepository,
     ): ItemUseCases {
         return ItemUseCases(
