@@ -36,5 +36,49 @@ class GetItemTest {
         }
     }
 
+    @Test
+    fun `Should return either with evangelion item`(): Unit = runBlocking{
+        val response = getItem(ItemType.EvangelionType, 1)
+        assertThat(response.isLeft()).isFalse()
+        val evangelion: Item
+        response.onRight {
+            evangelion = it
+            assertThat(evangelion::class == Item.Evangelion::class).isTrue()
+        }
+    }
+
+    @Test
+    fun `Should return either with episode item`(): Unit = runBlocking{
+        val response = getItem(ItemType.EpisodeType, 1)
+        assertThat(response.isLeft()).isFalse()
+        val episode: Item
+        response.onRight {
+            episode = it
+            assertThat(episode::class == Item.Episode::class).isTrue()
+        }
+    }
+
+    @Test
+    fun `Should return either with stuff item`(): Unit = runBlocking{
+        val response = getItem(ItemType.StuffType, 1)
+        assertThat(response.isLeft()).isFalse()
+        val stuff: Item
+        response.onRight {
+            stuff = it
+            assertThat(stuff::class == Item.Stuff::class).isTrue()
+        }
+    }
+
+    @Test
+    fun `Should return either with angel item`(): Unit = runBlocking{
+        val response = getItem(ItemType.AngelType, 1)
+        assertThat(response.isLeft()).isFalse()
+        val angel: Item
+        response.onRight {
+            angel = it
+            assertThat(angel::class == Item.Angel::class).isTrue()
+        }
+    }
+
 
 }
