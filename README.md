@@ -17,11 +17,10 @@ Evangelion Wiki App is fullstack Android App with BE written in kotlin
 
 - Native Android App is written in kotlin
 - For UI Jetpack Compose is used
-- Architecture is MVVM
+- Architecture - MVI
 - For exceptions handling Either library is used
 
 ## Todo
 
 - Create unit and ui tests for Android app
 - Add more data to DB
-- Structurise data more efficient
