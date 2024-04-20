@@ -90,7 +90,7 @@ fun ItemsCard(
                 }
                 Text(
                     text = when(item){
-                        is Item.Character -> item.bio
+                        is Item.Character -> item.info
                         is Item.Stuff -> item.info
                         is Item.Angel -> item.info
                         is Item.Episode -> item.info

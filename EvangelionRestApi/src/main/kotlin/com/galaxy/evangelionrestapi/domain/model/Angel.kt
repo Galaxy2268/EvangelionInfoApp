@@ -13,7 +13,7 @@ class Angel(
     var name: String,
     var meaning: String,
     var symbolism: String,
-    var number: Int,
+    var number: String,
     var info: String,
     var picture: String
 )

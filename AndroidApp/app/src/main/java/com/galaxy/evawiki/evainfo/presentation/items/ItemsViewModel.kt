@@ -10,6 +10,7 @@ import com.galaxy.evawiki.evainfo.domain.usecases.util.ItemType
 import com.galaxy.evawiki.evainfo.presentation.util.sendEvent
 import com.galaxy.evawiki.util.Event
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

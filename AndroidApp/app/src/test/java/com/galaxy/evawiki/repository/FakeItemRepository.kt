@@ -11,7 +11,7 @@ class FakeItemRepository: ItemRepository {
 
     var shouldReturnNetworkError = false
 
-    private val angel: Item.Angel = Item.Angel(1, "name", "meaning", "symbolism", 1, "info", "picture")
+    private val angel: Item.Angel = Item.Angel(1, "name", "meaning", "symbolism", "number", "info", "picture")
     private val angelList: List<Item.Angel> = listOf(angel)
 
     private val evangelion: Item.Evangelion = Item.Evangelion(1, "name", "model", "pilot", "soul", "info", "picture")

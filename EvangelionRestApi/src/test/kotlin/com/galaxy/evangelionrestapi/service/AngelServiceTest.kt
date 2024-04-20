@@ -30,7 +30,7 @@ internal class AngelServiceTest {
         @Test
         fun `should return angel by name`() {
             val angel = service.getByName("Adam")
-            Assertions.assertTrue(angel.name == "Adam" && angel.number == 1)
+            Assertions.assertTrue(angel.name == "Adam" && angel.number == "1st")
         }
     }
 
@@ -41,7 +41,7 @@ internal class AngelServiceTest {
         @Test
         fun `should return angel by pk`() {
             val angel = service.getByPk(2)
-            Assertions.assertTrue(angel.name == "Lilith" && angel.number == 2)
+            Assertions.assertTrue(angel.name == "Lilith" && angel.number == "2nd")
         }
     }
 

@@ -72,7 +72,7 @@ fun AngelFullCard(
                         .fillMaxWidth()
                         .padding(horizontal = horizontalItemSpacing),
                     title = "Number",
-                    text = "${angel.number}"
+                    text = angel.number
                 )
                 Spacer(modifier = Modifier.height(verticalItemSpacing))
                 TextRow(

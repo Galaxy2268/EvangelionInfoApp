@@ -94,8 +94,8 @@ fun CharacterFullCard(
                 Spacer(modifier = Modifier.height(32.dp))
                 InfoSection(
                     modifier = Modifier.padding(horizontal = horizontalItemSpacing),
-                    title = "Biography",
-                    text = character.bio
+                    title = "Information",
+                    text = character.info
                 )
             }
         }

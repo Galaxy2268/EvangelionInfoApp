@@ -30,7 +30,7 @@ internal class AngelRepositoryTest {
         @Test
         fun `should return angel by name`() {
             val angel = repository.findByName("Lilith")
-            Assertions.assertTrue(angel?.name == "Lilith" && angel.number == 2)
+            Assertions.assertTrue(angel?.name == "Lilith" && angel.number == "2nd")
         }
     }
 
@@ -42,7 +42,7 @@ internal class AngelRepositoryTest {
         @Test
         fun `should return angel by pk`() {
             val angel = repository.findByPk(1)
-            Assertions.assertTrue(angel?.name == "Adam" && angel.number == 1)
+            Assertions.assertTrue(angel?.name == "Adam" && angel.number == "1st")
         }
     }
 

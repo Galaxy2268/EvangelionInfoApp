@@ -6,7 +6,7 @@ sealed class Item{
         val name: String,
         val meaning: String,
         val symbolism: String,
-        val number: Int,
+        val number: String,
         val info: String,
         val picture: String
     ): Item()
@@ -19,7 +19,7 @@ sealed class Item{
         val age: Int,
         val dateOfBirth: String,
         val bloodType: String,
-        val bio: String,
+        val info: String,
         val picture: String
     ): Item()
 

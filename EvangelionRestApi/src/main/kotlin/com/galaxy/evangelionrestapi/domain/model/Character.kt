@@ -17,6 +17,6 @@ class Character(
     var age: Int,
     var dateOfBirth: String,
     var bloodType: String,
-    var bio: String,
+    var info: String,
     var picture: String
 )
