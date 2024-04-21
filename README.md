@@ -27,6 +27,7 @@ Evangelion Wiki App is fullstack Android App with BE written in kotlin
 - For UI Jetpack Compose is used
 - Architecture - MVI
 - For exceptions handling Either library is used
+- Color theme is from Material3
 
 ## Todo
 
