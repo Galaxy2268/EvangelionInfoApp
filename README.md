@@ -4,8 +4,7 @@ Evangelion Wiki App is fullstack Android App with BE written in kotlin
 
 ## Pictures
 
-:-------------------------:|:-------------------------:
-![AppPic1](ReadmeRes/AppPic1)  |  ![AppPic2](ReadmeRes/AppPic2) | ![AppPic3](ReadmeRes/AppPic3)
+![AppPic1](ReadmeRes/AppPic1.jpg)  |  ![AppPic2](ReadmeRes/AppPic2.jpg) | ![AppPic3](ReadmeRes/AppPic3.jpg)
 
 ## Architecture
 
